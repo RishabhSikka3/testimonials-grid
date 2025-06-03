@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@500;600&display=swap");
+
+:root {
+  --primary-font: "Barlow Semi Condensed", sans-serif;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --white: hsl(0, 0%, 100%);
+  --grey-100: hsl(214, 17%, 92%);
+  --grey-200: hsl(0, 0%, 81%);
+  --grey-400: hsl(224, 10%, 45%);
+  --grey-500: hsl(217, 19%, 35%);
+  --dark-blue: hsl(219, 29%, 14%);
+  --black: hsl(0, 0%, 7%);
+  --purple-50: hsl(260, 100%, 95%);
+  --purple-300: hsl(264, 82%, 80%);
+  --purple-500: hsl(263, 55%, 52%);
+  --shadow-colors: 0px 4px 6px rgba(0, 0, 0, 0.15),
+    -4px 0px 6px rgba(0, 0, 0, 0.1), 4px 0px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--white);
+  font-family: var(--primary-font);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: 0px;
+  color: var(--grey-400);
+}
+
+.container {
+  padding: 80px 32px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 1fr);
+  grid-gap: 32px;
+  grid-template-areas:
+    "daniel"
+    "jonathan"
+    "jeanette"
+    "patrick"
+    "kira";
+}
+
+.testimonial {
+  padding: 32px;
+  border-radius: 8px;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 16px;
+  box-shadow: var(--shadow-colors);
+}
+
+.testimonial:nth-child(1) {
+  grid-area: daniel;
+  background-color: var(--purple-500);
+  color: var(--grey-100);
+}
+
+.testimonial:nth-child(2) {
+  grid-area: jonathan;
+  background-color: var(--grey-500);
+  color: var(--grey-100);
+}
+
+.testimonial:nth-child(3) {
+  grid-area: kira;
+}
+
+.testimonial:nth-child(4) {
+  grid-area: jeanette;
+}
+
+.testimonial:nth-child(5) {
+  grid-area: patrick;
+  background-color: var(--dark-blue);
+  color: var(--grey-100);
+}
+
+.testimonial .profile {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.profile .avatar {
+  border-radius: 100px;
+  height: 28px;
+  width: 28px;
+}
+
+.testimonial:nth-child(1) .profile .avatar {
+  outline: 3px solid var(--purple-300);
+}
+
+.testimonial:nth-child(5) .profile .avatar {
+  outline: 3px solid var(--purple-500);
+}
+
+.profile-details {
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+}
+
+.profile-details .name {
+  font-weight: var(--font-weight-semibold);
+  line-height: 110%;
+}
+
+.profile-details .identity {
+  font-size: 11px;
+  line-height: 110%;
+}
+
+.testimonial:nth-child(n + 3):nth-child(-n + 4) .profile-details .name {
+  color: var(--grey-500);
+}
+
+.testimonial:nth-child(1) .profile-details .name,
+.testimonial:nth-child(2) .profile-details .name,
+.testimonial:nth-child(5) .profile-details .name {
+  color: var(--white);
+}
+
+.testimonial .title {
+  font-weight: var(--font-weight-semibold);
+  font-size: 20px;
+  line-height: 120%;
+}
+
+.testimonial:nth-child(n + 3):nth-child(-n + 4) .title {
+  color: var(--grey-500);
+}
+
+.testimonial:nth-child(1) .title,
+.testimonial:nth-child(2) .title,
+.testimonial:nth-child(5) .title {
+  color: var(--white);
+}
+
+/* Media Queries */
+
+@media (min-width: 768px) {
+  .testimonial:nth-child(1) {
+    background-image: url("images/bg-pattern-quotation.svg");
+    background-repeat: no-repeat;
+    background-position: top right 250px;
+  }
+
+  .testimonials-grid {
+    grid-template-areas:
+      "daniel daniel"
+      "jonathan jeanette"
+      "patrick patrick"
+      "kira kira";
+  }
+}
+
+@media (min-width: 1200px) {
+  .testimonial:nth-child(1) {
+    background-position: top right 50px;
+  }
+
+  .testimonials-grid {
+    grid-template-areas:
+      "daniel daniel jonathan kira"
+      "jeanette patrick patrick kira";
+  }
+}
