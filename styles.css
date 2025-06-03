@@ -153,6 +153,10 @@ html {
   color: var(--white);
 }
 
+.attribution {
+  text-align: center;
+}
+
 /* Media Queries */
 
 @media (min-width: 768px) {
@@ -172,13 +176,16 @@ html {
 }
 
 @media (min-width: 1200px) {
+  .container {
+    padding: 80px 120px;
+  }
   .testimonial:nth-child(1) {
     background-position: top right 50px;
   }
 
   .testimonials-grid {
     grid-template-areas:
-      "daniel daniel jonathan kira"
-      "jeanette patrick patrick kira";
+      "daniel daniel daniel jonathan  kira"
+      "jeanette patrick patrick patrick kira";
   }
 }
